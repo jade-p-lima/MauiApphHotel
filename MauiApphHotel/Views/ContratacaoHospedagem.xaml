@@ -11,7 +11,7 @@
 
         <Image Source="hotel.png" 
              HeightRequest="150"
-              Aspect="AspectFit"               />
+              Aspect="AspectFit"  />
 
         <Label Padding="4" LineBreakMode="WordWrap"
                BackgroundColor="Chocolate" 

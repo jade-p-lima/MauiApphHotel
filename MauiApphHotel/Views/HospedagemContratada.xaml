@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApphHotel.Views.HospedagemContratada"
+             Title="HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="LightGoldenrodYellow">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        
+        <Image Source="hotel.png" 
+                     HeightRequest="150"
+                                 Aspect="AspectFit" />
+    
+            <Label Padding="4" LineBreakMode="WordWrap"
+                 BackgroundColor="Chocolate" 
+                    FlexLayout.AlignSelf="Auto"
+                        Text="Suite Super Luxo!"
+                    HorizontalTextAlignment="Center" 
+                        FontFamily="QuicksandLight"
+                FontSize="40"
+                        TextColor="AntiqueWhite"/>
+
+        <Frame Margin="10" BorderColor="Chocolate"  >
+            
+            <HorizontalStackLayout>
+                
+            
+            <HorizontalStackLayout Margin="10">
+                <Label Text="Adultos: "/>
+                <Label Text="2" TextColor="Black"/>
+            </HorizontalStackLayout>
+        
+        <HorizontalStackLayout Margin="10">
+            <Label Text="Crianças: "/>
+            <Label Text="1" TextColor="Black"/>
+        </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame Margin="10" BorderColor="Chocolate">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto"
+                 ColumnSpacing="10"
+                  RowSpacing="5">
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="27/05/2024"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="30/05/2024"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="3"/>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10" BorderColor="Chocolate">
+            <HorizontalStackLayout>
+                <Label Text="Valor total"/>
+                <Label Text="R$ 700,00"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" 
+                BackgroundColor="Chocolate"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

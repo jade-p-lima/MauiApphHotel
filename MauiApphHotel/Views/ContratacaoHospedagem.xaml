@@ -11,20 +11,33 @@
 
         <Image Source="hotel.png" 
              HeightRequest="150"
-              Aspect="AspectFit"  />
-
-        <Label Padding="4" LineBreakMode="WordWrap"
-               BackgroundColor="Chocolate" 
-               FlexLayout.AlignSelf="Auto"
-            Text="Caulculo da Diária!"
-            HorizontalTextAlignment="Center" 
-            FontFamily="QuicksandLight"
-            FontSize="40"
-            TextColor="AntiqueWhite"/>
-
+              Aspect="AspectFit" />
+      
+        <Border
+                     Padding="4"
+                         Margin="4"
+                            BackgroundColor="Chocolate" 
+                            FlexLayout.AlignSelf="Start">
+        <!--arredondamento dos cantos-->
+                     <Border.StrokeShape>
+                         <RoundRectangle CornerRadius="35,0,0,35" />
+                    </Border.StrokeShape>
+           
+                <Label Margin="6"              
+                        Text="Caulculo da Diária!"
+                        LineBreakMode="WordWrap"
+                       FlexLayout.AlignSelf="Stretch"
+                        HorizontalTextAlignment="Center" 
+                        FontFamily="QuicksandLight"
+                       FontSize="32"
+                TextColor="AntiqueWhite"/>
+            
+        </Border>
+        
         <Frame Margin="10"  
                Padding="10" 
                BorderColor="Chocolate">
+            
             <VerticalStackLayout>
                 <Grid RowDefinitions="Auto, Auto"
                      ColumnDefinitions=" *, *, 2*" 
@@ -33,7 +46,8 @@
                     <Label Grid.Row="0" Grid.Column="0"
                            Text="Adultos:"
                            FontFamily="QuicksandRegular"/>
-
+                                       
+                    
                     <Label Grid.Row="0" Grid.Column="1"
                            TextColor="Black"
                            Text="{Binding Value}"
@@ -51,48 +65,72 @@
 
                     <Label Grid.Row="1" Grid.Column="1"
                             TextColor="Black"
-                             Text="{Binding Value}"
+                             Text="{Binding Value}" 
                         BindingContext="{x:Reference stp_criancas}"/>
 
                     <Stepper Grid.Row="1" Grid.Column="2"
                               x:Name="stp_criancas"
                                 Minimum="0"
                                 Maximum="10"
-                            Increment="1"/>
+                            Increment="1"
+                            />
                 </Grid>
-               
-                <Label Text="Escolha sua Suite" 
-                       Margin="0"  Padding="10"
+
+                <Frame
+                        Margin="10"
+                            Padding="10" BorderColor="Chocolate" >
+                    <VerticalStackLayout Spacing="18">
+                        <Label Text="Escolha sua Suite" 
+                       TextTransform="Uppercase"
+                        CharacterSpacing="2"
+                         TextColor="Chocolate"
+                       TextDecorations="Underline"
                       />
 
-                <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação:"
+                        <Picker x:Name="pck_quarto"
+                        Title="Selecione sua Acomodação:" 
                         TextColor="Chocolate"
+                        ItemDisplayBinding="{Binding Descricao}"/>
+                    </VerticalStackLayout>
                     
-                       ItemDisplayBinding="{Binding Descricao}" />
+                </Frame>
                 
-                <Frame 
-                       Margin="20" BorderColor="Chocolate">
+                    <Frame 
+                       Margin="10"
+                      BorderColor="Chocolate">
                     <VerticalStackLayout>
-                        <Label Text="Periodo da Estadia"/>
-                        <HorizontalStackLayout>
-                            <Label Text="Check-In:"/>
-                            <DatePicker x:Name="dtpck_checkin"
+                        <Label Text="Periodo da Estadia"
+                               TextTransform="Uppercase"
+                               CharacterSpacing="2"
+                               TextColor="Chocolate"
+                               TextDecorations="Underline"
+                               />
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                           
+                                <Label Text="Check-In:   " TextDecorations="Underline" 
+                                       FontSize="15" CharacterSpacing="2"
+                                       HorizontalOptions="Center"/>
+                               <DatePicker x:Name="dtpck_checkin"
                                         DateSelected="dtpck_checkin_DateSelected"
-                                       Format="dd/mm/yyyy" />
+                                  Format="dd/mm/yyyy" />
+                            
                         </HorizontalStackLayout>
-                        <HorizontalStackLayout>
-                            <Label Text="Check-out:"/>
+
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="Check-Out: " TextDecorations="Underline" 
+                                   FontSize="15" CharacterSpacing="2"
+                                   HorizontalOptions="Center"/>
                             <DatePicker x:Name="dtpck_checkout"
                                   Format="dd/mm/yyyy" />
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>
-                
-                    <Button Text="Avançar" BackgroundColor="Chocolate" Clicked="Button_Clicked"/>
-                
-                
             </VerticalStackLayout>
         </Frame>
+        
+        <Button Text="Avançar"
+                            HorizontalOptions="Center"
+                            Clicked="Button_Clicked"/>
+
             </VerticalStackLayout>
    </ContentPage>

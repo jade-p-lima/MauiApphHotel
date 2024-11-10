@@ -63,11 +63,11 @@
 	  <Compile Remove="Views\inicial.xaml.cs" />
 	  <Compile Remove="Views\MainPage.xaml.cs" />
 	  <Compile Remove="Views\MauiProgram.cs" />
+	  <Compile Remove="Views\NewPage1.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Remove="Views\inicial.xaml" />
-	  <MauiXaml Remove="Views\Sobre.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -83,10 +83,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Sobre.xaml.cs">
+	    <DependentUpon>Sobre.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\ContratacaoHospedagem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HospedagemContratada.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Sobre.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

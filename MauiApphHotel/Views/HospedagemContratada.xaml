@@ -5,36 +5,50 @@
              Title="HospedagemContratada"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="LightGoldenrodYellow">
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
-        
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10"
+                         FlexLayout.AlignSelf="Auto">
+
         <Image Source="hotel.png" 
                      HeightRequest="150"
                                  Aspect="AspectFit" />
-    
-            <Label Padding="4" LineBreakMode="WordWrap"
-                 BackgroundColor="Chocolate" 
-                    FlexLayout.AlignSelf="Auto"
-                        Text="Suite Super Luxo!"
+        <!--inserir borda-->
+        <Border
+            Padding="4"
+            Margin="4"
+            BackgroundColor="Chocolate"
+            HorizontalOptions="CenterAndExpand"
+            >
+            <!--arredondamento dos cantos-->
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="35,0,0,35" />
+            </Border.StrokeShape>
+
+            <Label 
+             Text="{Binding QuartoSelecionado.Descricao}"
                     HorizontalTextAlignment="Center" 
                         FontFamily="QuicksandLight"
-                FontSize="40"
+                         FontSize="42"      
                         TextColor="AntiqueWhite"/>
+        </Border>
 
-        <Frame Margin="10" BorderColor="Chocolate"  >
-            
-            <HorizontalStackLayout>
-                
-            
-            <HorizontalStackLayout Margin="10">
-                <Label Text="Adultos: "/>
-                <Label Text="2" TextColor="Black"/>
-            </HorizontalStackLayout>
-        
-        <HorizontalStackLayout Margin="10">
-            <Label Text="Crianças: "/>
-            <Label Text="1" TextColor="Black"/>
-        </HorizontalStackLayout>
-            </HorizontalStackLayout>
+        <Frame Margin="10" BorderColor="Chocolate">
+            <StackLayout  Orientation="Horizontal">
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+
+                    <Label Text="Adultos: " Padding="15" />
+
+                    <Label Text="{Binding QntAdultos}" TextColor="Black"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Crianças: " Padding="15" />
+                    <Label  Text="{Binding QntCriancas}" />
+                </HorizontalStackLayout>
+            </StackLayout>
         </Frame>
 
         <Frame Margin="10" BorderColor="Chocolate">
@@ -42,21 +56,24 @@
                   RowDefinitions="Auto, Auto"
                  ColumnSpacing="10"
                   RowSpacing="5">
-                
-                <Label Grid.Row="0" Grid.Column="0" Text="Check-in"/>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in" />
                 <Label Grid.Row="0" Grid.Column="1" Text="Check-out"/>
                 <Label Grid.Row="0" Grid.Column="2" Text="Estadia"/>
 
-                <Label Grid.Row="1" Grid.Column="0" Text="27/05/2024"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="30/05/2024"/>
-                <Label Grid.Row="1" Grid.Column="2" Text="3"/>
+                <Label Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding DataCheckIn,StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding DataCheckOut,StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                <Label Grid.Row="1" Grid.Column="2" 
+                       Text="{Binding Estadia}"/>
             </Grid>
         </Frame>
 
-        <Frame Margin="10" BorderColor="Chocolate">
-            <HorizontalStackLayout>
-                <Label Text="Valor total"/>
-                <Label Text="R$ 700,00"/>
+        <Frame  BorderColor="Chocolate">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Valor total: " Padding="10"/>
+                <Label Text= "{Binding ValorTotal, StringFormat='{}{0:c}'}" />
             </HorizontalStackLayout>
         </Frame>
 
@@ -65,6 +82,10 @@
                 Clicked="Button_Clicked" 
                 BackgroundColor="Chocolate"/>
 
-
+    
+    <Button Text="Sobre o App"
+            Clicked="Button_Clicked_1"
+            HorizontalOptions="EndAndExpand"
+            />
     </VerticalStackLayout>
 </ContentPage>

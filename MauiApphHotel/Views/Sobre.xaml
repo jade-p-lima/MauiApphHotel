@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApphHotel.Views.Sobre"
+             Title="Sobre"
+              BackgroundColor="LightGoldenrodYellow">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+
+        <Image Source="hotel.png" 
+             HeightRequest="150"
+              Aspect="AspectFit" />
+
+        <Border
+               Padding="4"
+                   Margin="4"
+                      BackgroundColor="Chocolate" 
+                      FlexLayout.AlignSelf="Start">
+            <!--arredondamento dos cantos-->
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="35,0,0,35" />
+            </Border.StrokeShape>
+        
+        <Label Margin="6"              
+                  Text="Sobre o Aplicativo"
+                  LineBreakMode="WordWrap"
+                 FlexLayout.AlignSelf="Stretch"
+                  HorizontalTextAlignment="Center" 
+                  FontFamily="QuicksandLight"
+                 FontSize="32"
+          TextColor="AntiqueWhite"/>
+        </Border>
+        
+        <Frame Margin="10"  
+       Padding="10" 
+       BorderColor="Chocolate">
+
+                <VerticalStackLayout>
+                    <Grid RowDefinitions="Auto, Auto"
+             ColumnDefinitions=" *, *" 
+              ColumnSpacing="10">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                   Text="Desenvolvido por:"
+                   FontFamily="QuicksandRegular"/>
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                            Text="JADE MARCELINO PEREIRA DE LIMA"
+                                FontFamily="QuicksandRegular"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="1"
+                            Text="Ano de Desenvolvimento :  "
+                            FontFamily="QuicksandRegular"/>
+
+                    <Label Grid.Row="2" Grid.Column="1"
+                            Text="2024"
+                                FontFamily="QuicksandRegular"
+                           />
+                </Grid>
+                    
+                </VerticalStackLayout>
+            </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>
